@@ -42,6 +42,7 @@ namespace YYTEstimator
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //PATH FIXE : DB à mettre dans bin/debug
             using (StreamReader file = File.OpenText("YYTDB.json"))
             using (JsonTextReader reader = new JsonTextReader(file))
             {
