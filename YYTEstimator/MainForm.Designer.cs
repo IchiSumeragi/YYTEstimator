@@ -44,26 +44,34 @@
             // 
             // aboutButton
             // 
+            this.aboutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.aboutButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.aboutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.aboutButton.Location = new System.Drawing.Point(313, 359);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(75, 23);
             this.aboutButton.TabIndex = 1;
             this.aboutButton.Text = "About";
-            this.aboutButton.UseVisualStyleBackColor = true;
+            this.aboutButton.UseVisualStyleBackColor = false;
             this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
             // addButton
             // 
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addButton.Location = new System.Drawing.Point(307, 6);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // deckBox
             // 
+            this.deckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.deckBox.ForeColor = System.Drawing.Color.White;
             this.deckBox.FormattingEnabled = true;
             this.deckBox.Location = new System.Drawing.Point(12, 40);
             this.deckBox.Name = "deckBox";
@@ -72,18 +80,24 @@
             // 
             // removeButton
             // 
+            this.removeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.removeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.removeButton.Location = new System.Drawing.Point(307, 40);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(75, 23);
             this.removeButton.TabIndex = 4;
             this.removeButton.Text = "Remove";
-            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.UseVisualStyleBackColor = false;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // cardBox
             // 
             this.cardBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cardBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cardBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cardBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cardBox.ForeColor = System.Drawing.Color.White;
             this.cardBox.Location = new System.Drawing.Point(12, 9);
             this.cardBox.Name = "cardBox";
             this.cardBox.Size = new System.Drawing.Size(176, 20);
@@ -91,23 +105,29 @@
             // 
             // estimateButton
             // 
+            this.estimateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.estimateButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.estimateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.estimateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.estimateButton.Location = new System.Drawing.Point(12, 388);
             this.estimateButton.Name = "estimateButton";
             this.estimateButton.Size = new System.Drawing.Size(116, 52);
             this.estimateButton.TabIndex = 6;
             this.estimateButton.Text = "Estimate !";
-            this.estimateButton.UseVisualStyleBackColor = true;
+            this.estimateButton.UseVisualStyleBackColor = false;
             this.estimateButton.Click += new System.EventHandler(this.estimateButton_Click);
             // 
             // importButton
             // 
+            this.importButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.importButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.importButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.importButton.Location = new System.Drawing.Point(134, 413);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(75, 23);
             this.importButton.TabIndex = 7;
             this.importButton.Text = "Import...";
-            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.UseVisualStyleBackColor = false;
             this.importButton.Click += new System.EventHandler(this.importButton_Click);
             // 
             // importBrowser
@@ -127,6 +147,8 @@
             // 
             // priceBox
             // 
+            this.priceBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.priceBox.ForeColor = System.Drawing.Color.White;
             this.priceBox.FormattingEnabled = true;
             this.priceBox.Location = new System.Drawing.Point(253, 40);
             this.priceBox.Name = "priceBox";
@@ -135,6 +157,8 @@
             // 
             // quantityBox
             // 
+            this.quantityBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.quantityBox.ForeColor = System.Drawing.Color.White;
             this.quantityBox.FormattingEnabled = true;
             this.quantityBox.Location = new System.Drawing.Point(194, 40);
             this.quantityBox.Name = "quantityBox";
@@ -143,7 +167,9 @@
             // 
             // quantitySelection
             // 
+            this.quantitySelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.quantitySelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.quantitySelection.ForeColor = System.Drawing.Color.White;
             this.quantitySelection.FormattingEnabled = true;
             this.quantitySelection.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.quantitySelection.Items.AddRange(new object[] {
@@ -160,6 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(400, 448);
             this.Controls.Add(this.quantitySelection);
             this.Controls.Add(this.quantityBox);
@@ -172,6 +199,8 @@
             this.Controls.Add(this.deckBox);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.aboutButton);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "YYT Estimator";
             this.Load += new System.EventHandler(this.MainForm_Load);
