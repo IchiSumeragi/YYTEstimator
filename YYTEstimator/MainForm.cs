@@ -17,6 +17,8 @@ namespace YYTEstimator
         private void addButton_Click(object sender, EventArgs e)
         {
             deckBox.Items.Add(cardBox.Text);
+
+            //si on a pas selectionné de quantité, on en met 1 par défaut
             if (quantitySelection.SelectedItem != null)
                 quantityBox.Items.Add(quantitySelection.SelectedItem);
             else
@@ -25,11 +27,15 @@ namespace YYTEstimator
 
         private void removeButton_Click(object sender, EventArgs e)
         {
+            //on remove de deckbox en dernier sinon l'index saute
+            quantityBox.Items.RemoveAt(deckBox.SelectedIndex);
+            priceBox.Items.RemoveAt(deckBox.SelectedIndex);
             deckBox.Items.RemoveAt(deckBox.SelectedIndex);
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
+            //affiche la fenêtre "About"
             AboutForm form = new AboutForm();
             form.Show();
         }
@@ -47,6 +53,8 @@ namespace YYTEstimator
                     Card.Cards.Add(JsonConvert.DeserializeObject<Card>(x.Value.ToString()));
             }
 
+            //pour l'autocomplétion, il faut lui passer une collection d'un type précis
+            //qui est remplie avec les ID des cartes à autocompléter
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
 
             foreach (Card c in Card.Cards)
@@ -57,16 +65,21 @@ namespace YYTEstimator
 
         private void importButton_Click(object sender, EventArgs e)
         {
+            //si le result est OK, on a un fichier et tout s'est bien passé
             DialogResult result = importBrowser.ShowDialog();
             int sum = 0;
 
+            //quand on importe d'un txt, on clean toutes les données
+            //pour mettre celles du txt à la place
             deckBox.Items.Clear();
+            quantityBox.Items.Clear();
             priceBox.Items.Clear();
 
             if (result == DialogResult.OK)
             {
                 if (importBrowser.CheckFileExists)
                 {
+                    //on lit le fichier
                     Stream s = importBrowser.OpenFile();
 
                     using (StreamReader reader = new StreamReader(s))
@@ -77,13 +90,17 @@ namespace YYTEstimator
                         {
                             string[] sline = line.Split(null);
 
+                            //on cherche un match entre l'ID trouvé dans le txt et une carte de la DB
                             Card card = Card.Cards.Find(c => c.ID == sline[0]);
 
+                            //si on en trouve un, on ajoute la carte et ses données dans les box
                             if (card != null)
                             {
                                 deckBox.Items.Add(card.ID);
                                 priceBox.Items.Add(card.Price.ToString());
 
+                                //par défaut, si aucune quantité n'est précisée dans le txt, on en met 1
+                                //puis on calcule la somme du prix (+= prix * quantité)
                                 if (sline.Length == 2)
                                 {
                                     quantityBox.Items.Add(sline[1]);
@@ -110,10 +127,12 @@ namespace YYTEstimator
             int sum = 0;
             int i = 0;
 
+            //pour chaque carte, on cherche un match entre l'id et une carte de la DB
             foreach (string s in deckBox.Items)
             {
                 Card card = Card.Cards.Find(c => c.ID == s);
 
+                //si on en trouve un, on ajoute la carte et ses données dans les box puis on calcule la somme                
                 if (card != null)
                 {
                     deckBox.Items.Clear();
