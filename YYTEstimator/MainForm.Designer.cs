@@ -40,6 +40,10 @@
             this.priceBox = new System.Windows.Forms.ListBox();
             this.quantityBox = new System.Windows.Forms.ListBox();
             this.quantitySelection = new System.Windows.Forms.ComboBox();
+            this.exportButton = new System.Windows.Forms.Button();
+            this.cardPicturebox = new System.Windows.Forms.PictureBox();
+            this.exportDialog = new System.Windows.Forms.SaveFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.cardPicturebox)).BeginInit();
             this.SuspendLayout();
             // 
             // aboutButton
@@ -47,7 +51,7 @@
             this.aboutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.aboutButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.aboutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.aboutButton.Location = new System.Drawing.Point(313, 359);
+            this.aboutButton.Location = new System.Drawing.Point(414, 417);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(75, 23);
             this.aboutButton.TabIndex = 1;
@@ -75,8 +79,10 @@
             this.deckBox.FormattingEnabled = true;
             this.deckBox.Location = new System.Drawing.Point(12, 40);
             this.deckBox.Name = "deckBox";
+            this.deckBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.deckBox.Size = new System.Drawing.Size(176, 342);
             this.deckBox.TabIndex = 3;
+            this.deckBox.SelectedIndexChanged += new System.EventHandler(this.deckBox_SelectedIndexChanged);
             // 
             // removeButton
             // 
@@ -122,7 +128,7 @@
             this.importButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.importButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.importButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.importButton.Location = new System.Drawing.Point(134, 413);
+            this.importButton.Location = new System.Drawing.Point(134, 388);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(75, 23);
             this.importButton.TabIndex = 7;
@@ -182,12 +188,35 @@
             this.quantitySelection.Size = new System.Drawing.Size(53, 21);
             this.quantitySelection.TabIndex = 11;
             // 
+            // exportButton
+            // 
+            this.exportButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.exportButton.Location = new System.Drawing.Point(135, 418);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(75, 23);
+            this.exportButton.TabIndex = 12;
+            this.exportButton.Text = "Export...";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
+            // cardPicturebox
+            // 
+            this.cardPicturebox.Location = new System.Drawing.Point(307, 69);
+            this.cardPicturebox.Name = "cardPicturebox";
+            this.cardPicturebox.Size = new System.Drawing.Size(189, 264);
+            this.cardPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cardPicturebox.TabIndex = 14;
+            this.cardPicturebox.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(400, 448);
+            this.ClientSize = new System.Drawing.Size(501, 448);
+            this.Controls.Add(this.cardPicturebox);
+            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.quantitySelection);
             this.Controls.Add(this.quantityBox);
             this.Controls.Add(this.priceBox);
@@ -204,6 +233,7 @@
             this.Name = "MainForm";
             this.Text = "YYT Estimator";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.cardPicturebox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +252,9 @@
         private System.Windows.Forms.ListBox priceBox;
         private System.Windows.Forms.ListBox quantityBox;
         private System.Windows.Forms.ComboBox quantitySelection;
+        private System.Windows.Forms.Button exportButton;
+        private System.Windows.Forms.PictureBox cardPicturebox;
+        private System.Windows.Forms.SaveFileDialog exportDialog;
     }
 }
 

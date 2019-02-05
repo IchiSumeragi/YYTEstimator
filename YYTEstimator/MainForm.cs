@@ -18,6 +18,21 @@ namespace YYTEstimator
         {
             deckBox.Items.Add(cardBox.Text);
 
+            //on cherche un match pour la carte qu'on vient d'ajouter
+            Card card = Card.Cards.Find(c => c.ID == cardBox.Text);
+
+            //si on en trouve un, on ajoute la carte et ses données dans les box puis on calcule la somme                
+            if (card != null)
+            {
+                deckBox.Items.Clear();
+                deckBox.Items.Add(card.ID);
+                priceBox.Items.Add(card.Price.ToString());
+                
+                //sum += Convert.ToInt32(priceLabel.Text) * card.Price * Convert.ToInt32(quantitySelection);
+
+                //priceLabel.Text = sum.ToString() + "¥";
+            }
+
             //si on a pas selectionné de quantité, on en met 1 par défaut
             if (quantitySelection.SelectedItem != null)
                 quantityBox.Items.Add(quantitySelection.SelectedItem);
@@ -28,9 +43,13 @@ namespace YYTEstimator
         private void removeButton_Click(object sender, EventArgs e)
         {
             //on remove de deckbox en dernier sinon l'index saute
-            quantityBox.Items.RemoveAt(deckBox.SelectedIndex);
-            priceBox.Items.RemoveAt(deckBox.SelectedIndex);
-            deckBox.Items.RemoveAt(deckBox.SelectedIndex);
+            //l'index vaut -1 quand rien n'est selectionné
+            if (deckBox.SelectedIndex != -1)
+            {
+                quantityBox.Items.RemoveAt(deckBox.SelectedIndex);
+                priceBox.Items.RemoveAt(deckBox.SelectedIndex);
+                deckBox.Items.RemoveAt(deckBox.SelectedIndex);
+            }
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
@@ -147,6 +166,35 @@ namespace YYTEstimator
             }
 
             priceLabel.Text = sum.ToString() + "¥";
+        }
+
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            //string path = "";
+            //DialogResult result = importBrowser.ShowDialog();
+
+            //path = importBrowser.cre
+            //if (result == DialogResult.OK)
+            //{
+            //    using (StreamWriter writer = new StreamWriter(path))
+            //    {
+            //        foreach (var c in deckBox.Items)
+            //        {
+
+            //        }
+            //    }
+            //}
+        }
+
+        private void deckBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Card card = Card.Cards.Find(c => c.ID == deckBox.SelectedItem.ToString());
+
+            //si on en trouve un, on ajoute la carte et ses données dans les box puis on calcule la somme                
+            if (card != null)
+            {
+                cardPicturebox.LoadAsync(card.URL);
+            }
         }
     }
 }
