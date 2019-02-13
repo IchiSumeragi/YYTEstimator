@@ -16,21 +16,14 @@ namespace YYTEstimator
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            deckBox.Items.Add(cardBox.Text);
-
             //on cherche un match pour la carte qu'on vient d'ajouter
             Card card = Card.Cards.Find(c => c.ID == cardBox.Text);
 
-            //si on en trouve un, on ajoute la carte et ses données dans les box puis on calcule la somme                
+            //si on en trouve un, on ajoute la carte et ses données dans les box
             if (card != null)
             {
-                deckBox.Items.Clear();
                 deckBox.Items.Add(card.ID);
                 priceBox.Items.Add(card.Price.ToString());
-                
-                //sum += Convert.ToInt32(priceLabel.Text) * card.Price * Convert.ToInt32(quantitySelection);
-
-                //priceLabel.Text = sum.ToString() + "¥";
             }
 
             //si on a pas selectionné de quantité, on en met 1 par défaut
@@ -155,10 +148,6 @@ namespace YYTEstimator
                 //si on en trouve un, on ajoute la carte et ses données dans les box puis on calcule la somme                
                 if (card != null)
                 {
-                    deckBox.Items.Clear();
-                    deckBox.Items.Add(card.ID);
-                    priceBox.Items.Add(card.Price.ToString());
-
                     sum += card.Price * Convert.ToInt32(quantityBox.Items[i]);
 
                     i++;
