@@ -145,7 +145,7 @@ namespace YYTEstimator
             {
                 Card card = Card.Cards.Find(c => c.ID == s);
 
-                //si on en trouve un, on ajoute la carte et ses données dans les box puis on calcule la somme                
+                //si on en trouve un, on ajoute son prix à la somme
                 if (card != null)
                 {
                     sum += card.Price * Convert.ToInt32(quantityBox.Items[i]);
@@ -177,12 +177,28 @@ namespace YYTEstimator
 
         private void deckBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //pour la carte sélectionnée, on cherche un match entre l'id et une carte de la DB
             Card card = Card.Cards.Find(c => c.ID == deckBox.SelectedItem.ToString());
 
             //si on en trouve un, on ajoute la carte et ses données dans les box puis on calcule la somme                
             if (card != null)
             {
                 cardPicturebox.LoadAsync(card.URL);
+            }
+        }
+
+        private void cardPicturebox_Click(object sender, EventArgs e)
+        {
+            if (deckBox.SelectedIndex != -1)
+            {
+                //pour la carte sélectionnée, on cherche un match entre l'id et une carte de la DB
+                Card card = Card.Cards.Find(c => c.ID == deckBox.SelectedItem.ToString());
+
+                //si on en trouve un, on click on va sur yuyu               
+                if (card != null)
+                {
+                    System.Diagnostics.Process.Start(card.CardURL);
+                }
             }
         }
     }

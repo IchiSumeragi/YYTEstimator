@@ -192,7 +192,7 @@
             // 
             this.exportButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.exportButton.Location = new System.Drawing.Point(135, 418);
+            this.exportButton.Location = new System.Drawing.Point(134, 417);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(75, 23);
             this.exportButton.TabIndex = 12;
@@ -208,6 +208,7 @@
             this.cardPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cardPicturebox.TabIndex = 14;
             this.cardPicturebox.TabStop = false;
+            this.cardPicturebox.Click += new System.EventHandler(this.cardPicturebox_Click);
             // 
             // MainForm
             // 
